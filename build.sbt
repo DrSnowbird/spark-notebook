@@ -214,7 +214,7 @@ lazy val sparkNotebookCore = Project(id = "spark-notebook-core", base = file("mo
     libraryDependencies += slf4jLog4j,
     libraryDependencies += commonsIO,
     libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.6" % "test"
-  )
+  ).settings(sharedSettings: _*)
 
 lazy val sparkNotebook = project.in(file(".")).enablePlugins(play.PlayScala).enablePlugins(SbtWeb)
   .aggregate(sparkNotebookCore, subprocess, observable, common, spark, kernel)
